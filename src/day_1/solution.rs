@@ -1,11 +1,16 @@
 use crate::common;
 
-use std::io;
+use std::io::{Error, ErrorKind};
 
-pub fn solution_1() -> io::Result<()>  {
-    for line in common::read_input_for_day(1) {
-        println!("{}", line);
+pub fn part_1() -> Result<i32, Error>  {
+    let lines = common::read_input_as_integers_for_day(1);
+    for i in 0..lines.len()-1 {
+        for k in i+1..lines.len() {
+            if lines[i] + lines[k] == 2020 {
+                return Ok(lines[i] * lines[k]);
+            }
+        }
     }
     
-    Ok(())
+    return Err(Error::new(ErrorKind::Other, "Solution not found"));
 }
