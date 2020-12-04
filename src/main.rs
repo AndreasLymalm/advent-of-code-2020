@@ -6,7 +6,7 @@ mod day_3;
 mod day_4;
 
 fn main() {
-    match day_4::solution::part_1() {
+    match day_4::solution::part_2() {
         Ok(answer) => println!("Answer is: {}", answer),
         Err(e) => println!("Error: {}", e)
     }
